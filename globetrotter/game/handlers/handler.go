@@ -3,11 +3,11 @@ package handlers
 import (
 	"errors"
 	"github.com/gin-gonic/gin"
+	common2 "globetrotter/common"
 	"globetrotter/game/models"
 	"globetrotter/game/service"
 	"net/http"
 	token "token-manager"
-	"user-server/common"
 )
 
 type GameHandler struct {
@@ -32,7 +32,7 @@ func (h *GameHandler) SubmitAnswer(ctx *gin.Context) {
 	requestCtx := ctx.Request.Context()
 	var req models.AnswerRequest
 	if err := ctx.ShouldBindJSON(&req); err != nil {
-		common.BadRequest(ctx, "bad-request", "failed to parse request")
+		common2.BadRequest(ctx, "bad-request", "failed to parse request")
 		return
 	}
 	userId := getUserIdFromContext(ctx)
@@ -46,11 +46,11 @@ func (h *GameHandler) SubmitAnswer(ctx *gin.Context) {
 }
 
 func handleError(ctx *gin.Context, err error) {
-	var notFoundErr *common.NotFoundError
+	var notFoundErr *common2.NotFoundError
 	if errors.As(err, &notFoundErr) {
-		common.NotFound(ctx, err.Error())
+		common2.NotFound(ctx, err.Error())
 	} else {
-		common.InternalError(ctx, err.Error())
+		common2.InternalError(ctx, err.Error())
 	}
 }
 

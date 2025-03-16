@@ -3,6 +3,7 @@ package game
 import (
 	"context"
 	"github.com/gin-gonic/gin"
+	"globetrotter/auth"
 	"globetrotter/common"
 	"globetrotter/config"
 	"globetrotter/game/db"
@@ -12,7 +13,6 @@ import (
 	userDb "globetrotter/user/db"
 	userService "globetrotter/user/service"
 	"log"
-	"user-server/auth"
 )
 
 var handler *handlers.GameHandler

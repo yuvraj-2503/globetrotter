@@ -1,3 +1,0 @@
-./user-server/config/.env
-./globetrotter/config/.env
-./blob-manager/gcs/test/gcs_creds.json

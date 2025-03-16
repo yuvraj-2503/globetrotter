@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"github.com/gin-gonic/gin"
+	"globetrotter/auth"
 	"globetrotter/config"
 	"globetrotter/game"
 	"globetrotter/invite"
@@ -15,6 +16,9 @@ import (
 func main() {
 	router := gin.Default()
 	ctx := context.TODO()
+
+	auth.LoadDB(&ctx)
+	auth.LoadHandlers(router)
 
 	user.LoadDB(&ctx)
 	user.LoadHandlers(router)

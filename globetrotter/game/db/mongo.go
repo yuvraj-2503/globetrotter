@@ -3,13 +3,13 @@ package db
 import (
 	"context"
 	"errors"
+	"globetrotter/common"
 	"globetrotter/game/models"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"math/rand"
-	"user-server/common"
 )
 
 type DestinationDBStore struct {

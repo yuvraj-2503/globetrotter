@@ -3,10 +3,10 @@ package db
 import (
 	"context"
 	"errors"
+	"globetrotter/common"
 	"globetrotter/invite/models"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
-	"user-server/common"
 )
 
 type InviteDBImpl struct {

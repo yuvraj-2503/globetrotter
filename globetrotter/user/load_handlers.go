@@ -2,13 +2,13 @@ package user
 
 import (
 	"github.com/gin-gonic/gin"
+	"globetrotter/auth"
 	"globetrotter/common"
 	"globetrotter/config"
 	"globetrotter/user/db"
 	"globetrotter/user/handlers"
 	"globetrotter/user/service"
 	"log"
-	"user-server/auth"
 )
 
 var handler *handlers.UserHandler

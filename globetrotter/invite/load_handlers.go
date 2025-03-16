@@ -2,6 +2,7 @@ package invite
 
 import (
 	"github.com/gin-gonic/gin"
+	"globetrotter/auth"
 	"globetrotter/common"
 	"globetrotter/config"
 	"globetrotter/invite/db"
@@ -10,7 +11,6 @@ import (
 	userDb "globetrotter/user/db"
 	user "globetrotter/user/service"
 	"log"
-	"user-server/auth"
 )
 
 var inviteHandler *handlers.InviteHandler

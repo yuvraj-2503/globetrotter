@@ -3,10 +3,10 @@ package handlers
 import (
 	"errors"
 	"github.com/gin-gonic/gin"
+	common2 "globetrotter/common"
 	"globetrotter/invite/service"
 	"net/http"
 	token "token-manager"
-	"user-server/common"
 )
 
 type InviteHandler struct {
@@ -55,13 +55,13 @@ func getUserIdFromContext(ctx *gin.Context) string {
 }
 
 func handleError(ctx *gin.Context, err error) {
-	var alreadyExist *common.AlreadyExistsError
-	var notFound *common.NotFoundError
+	var alreadyExist *common2.AlreadyExistsError
+	var notFound *common2.NotFoundError
 	if errors.As(err, &alreadyExist) {
-		common.ConflictError(ctx, err.Error())
+		common2.ConflictError(ctx, err.Error())
 	} else if errors.As(err, &notFound) {
-		common.NotFound(ctx, err.Error())
+		common2.NotFound(ctx, err.Error())
 	} else {
-		common.InternalError(ctx, err.Error())
+		common2.InternalError(ctx, err.Error())
 	}
 }
