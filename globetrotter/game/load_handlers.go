@@ -1,11 +1,13 @@
 package game
 
 import (
+	"context"
 	"github.com/gin-gonic/gin"
 	"globetrotter/common"
 	"globetrotter/config"
 	"globetrotter/game/db"
 	"globetrotter/game/handlers"
+	"globetrotter/game/probe"
 	"globetrotter/game/service"
 	userDb "globetrotter/user/db"
 	userService "globetrotter/user/service"
@@ -31,7 +33,19 @@ func LoadHandlers(router *gin.Engine) {
 	manager := service.NewGameServiceImpl(destDB, userservice)
 	handler = handlers.NewGameHandler(manager)
 	authHandler = auth.NewAuthHandler(config.Configuration.SecretKey)
+	loadProbes(destDB)
 	loadRoutes(router)
+}
+
+func loadProbes(destDB db.DestinationDB) {
+	destService := service.NewDestinationService(destDB)
+	prob := probe.NewDestinationsProbe(destService)
+	ctx := context.TODO()
+	err := prob.FetchDestinationsFromFile(&ctx,
+		"/Users/yuvrajsingh/Developer/Headout assignment/globetrotter/game/probe/destinations.json")
+	if err != nil {
+		log.Fatalf("Error fetching destinations from file, reason: %v", err)
+	}
 }
 
 func loadRoutes(router *gin.Engine) {

@@ -19,7 +19,9 @@ func main() {
 	user.LoadDB(&ctx)
 	user.LoadHandlers(router)
 
+	game.LoadDB(&ctx)
 	game.LoadHandlers(router)
+
 	invite.LoadHandlers(router)
 
 	public := router.Group("/api/v1")
