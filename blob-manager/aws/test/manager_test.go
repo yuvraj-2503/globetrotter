@@ -33,8 +33,8 @@ func TestBlobManager_Delete(t *testing.T) {
 			name: "Delete",
 			fields: fields{
 				BlobStore: aws.CreateS3Client(&aws.AWSConfig{
-					AccessKeyID:     "AKIAXSWKI2KJD4K6QQDV",
-					AccessKeySecret: "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",
+					AccessKeyID:     "",
+					AccessKeySecret: "",
 					Region:          "ap-south-1",
 					BucketName:      "yuvrajusersprofile",
 					UploadTimeout:   0,
@@ -81,8 +81,8 @@ func TestBlobManager_Download(t *testing.T) {
 			name: "Download",
 			fields: fields{
 				BlobStore: aws.CreateS3Client(&aws.AWSConfig{
-					AccessKeyID:     "AKIAXSWKI2KJD4K6QQDV",
-					AccessKeySecret: "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",
+					AccessKeyID:     "",
+					AccessKeySecret: "",
 					Region:          "ap-south-1",
 					BucketName:      "yuvrajusersprofile",
 					UploadTimeout:   0,
@@ -143,8 +143,8 @@ func TestBlobManager_Upload(t *testing.T) {
 			name: "Upload",
 			fields: fields{
 				BlobStore: aws.CreateS3Client(&aws.AWSConfig{
-					AccessKeyID:     "AKIAXSWKI2KJD4K6QQDV",
-					AccessKeySecret: "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",
+					AccessKeyID:     "",
+					AccessKeySecret: "",
 					Region:          "ap-south-1",
 					BucketName:      "yuvrajusersprofile",
 					UploadTimeout:   0,

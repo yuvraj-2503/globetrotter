@@ -27,7 +27,7 @@ func TestSendgridMailSender_Send(t *testing.T) {
 			name: "Send Email Test",
 			fields: fields{
 				SenderId:       "noreply@ziroh.com",
-				SendgridClient: sendgrid.NewSendClient("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"),
+				SendgridClient: sendgrid.NewSendClient(""),
 			},
 			args: args{
 				ctx: nil,
@@ -36,7 +36,7 @@ func TestSendgridMailSender_Send(t *testing.T) {
 					Cc:  &[]string{},
 					Bcc: &[]string{},
 					Template: &SendgridTemplate{
-						TemplateId: "d-f990ca55eab844f49b9763e15b4cead8",
+						TemplateId: "",
 						TemplateData: map[string]string{
 							"otp": strconv.Itoa(123456),
 						},

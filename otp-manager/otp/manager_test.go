@@ -32,7 +32,7 @@ func init() {
 	//	"657015acd6fc0526436e8f82")
 	//otpSender = senders.NewSmsOtpSender(&ctx, smsSender)
 	var sendgridSender = mail.NewSendgridMailSender("noreply@ziroh.com",
-		"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")
+		"")
 	otpSender = senders.NewMailOtpSender(&ctx, sendgridSender)
 }
 

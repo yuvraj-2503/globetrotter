@@ -13,7 +13,7 @@ var sendgridSender mail.TemplatedMailSender
 func init() {
 	ctx = context.TODO()
 	sendgridSender = mail.NewSendgridMailSender("noreply@ziroh.com",
-		"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")
+		"")
 }
 
 func TestMailOtpSender_Send(t *testing.T) {
